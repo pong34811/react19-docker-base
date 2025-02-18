@@ -1,0 +1,13 @@
+services:
+  react-frontend:
+    container_name: react-frontend
+    build:
+      context: ../frontend
+      dockerfile: dockers/Dockerfile.development
+    volumes:
+      - "../frontend:/frontend"
+      - node_modules:/frontend/node_modules  # ใช้ volume แยกสำหรับ node_modules
+    ports:
+      - "3000:3000"
+volumes:
+  node_modules:
